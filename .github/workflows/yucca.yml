@@ -1,0 +1,29 @@
+name: "TERRACOTTA"
+run-name: "Flint"
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+permissions:
+  pages: write
+  id-token: write
+  contents: read
+jobs:
+  Whisper:
+    runs-on: ubuntu-latest
+    environment:
+      name: "github-pages"
+      url: ${{ steps.cypress.outputs.page_url }}
+    steps:
+      - name: "lotus"
+        uses: actions/checkout@v6
+      - name: "Yucca"
+        uses: actions/configure-pages@v5
+      - name: "STARLING"
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - name: "spring"
+        id: cypress
+        uses: actions/deploy-pages@v4
